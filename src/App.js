@@ -1,25 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CommentDetail from './components/CommentDetail';
+import ApprovalCard from './components/ApprovalCard';
+import faker from 'faker';
 
 class App extends Component {
+
+  getTime(){
+    return (new Date()).toLocaleTimeString();
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="ui container comments">
+        <ApprovalCard>
+          <CommentDetail 
+            author="Sam"
+            avatar={faker.image.avatar()}
+            />
+        </ApprovalCard>
+        <ApprovalCard>
+          <CommentDetail 
+            author="Alex"
+            avatar={faker.image.avatar()} 
+            />
+        </ApprovalCard>
+        <ApprovalCard>
+          <CommentDetail 
+            author="Jane"
+            avatar={faker.image.avatar()} 
+           />
+        </ApprovalCard>
       </div>
     );
   }
